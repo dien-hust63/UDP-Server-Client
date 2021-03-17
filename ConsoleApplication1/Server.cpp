@@ -50,7 +50,7 @@ int main(int argc, char * argv[]) {
 			clientPort = ntohs(clientAddr.sin_port);
 			printf("Receive from client %s:%d %s\n", clientIP, clientPort, buff);
 			//echo to client
-			ret = sendto(server, buff, sizeof(buff), 0, (sockaddr *)&clientAddr, sizeof(clientAddr));
+			ret = sendto(server, buff, strlen(buff), 0, (sockaddr *)&clientAddr, sizeof(clientAddr));
 			if (ret == SOCKET_ERROR) {
 				printf("Error: %d", WSAGetLastError());
 			}
